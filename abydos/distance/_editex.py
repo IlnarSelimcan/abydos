@@ -23,7 +23,6 @@ from sys import float_info
 from typing import Any, Tuple, cast
 from unicodedata import normalize as unicode_normalize
 
-from numpy import float_ as np_float
 from numpy import zeros as np_zeros
 
 from ._distance import _Distance
@@ -203,7 +202,7 @@ class Editex(_Distance):
                 for pos in range(src_len)
             )
 
-        d_mat = np_zeros((len(src) + 1, len(tar) + 1), dtype=np_float)
+        d_mat = np_zeros((len(src) + 1, len(tar) + 1), dtype=float)
         src = ' ' + src
         tar = ' ' + tar
 
