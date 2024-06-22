@@ -32,7 +32,6 @@ from typing import (
     cast,
 )
 
-from numpy import float_ as np_float
 from numpy import zeros as np_zeros
 
 from ._distance import _Distance
@@ -190,7 +189,7 @@ class FlexMetric(_Distance):
         if not tar:
             return sum(self._cost(src, i, '', -1) for i in range(len(src)))
 
-        d_mat = np_zeros((src_len + 1, tar_len + 1), dtype=np_float)
+        d_mat = np_zeros((src_len + 1, tar_len + 1), dtype=float)
         for i in range(1, src_len + 1):
             d_mat[i, 0] = d_mat[i - 1, 0] + self._cost(src, i - 1, '', -1)
         for j in range(1, tar_len + 1):
