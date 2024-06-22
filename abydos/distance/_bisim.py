@@ -21,7 +21,6 @@ BI-SIM similarity
 
 from typing import Any, cast
 
-from numpy import float_ as np_float
 from numpy import zeros as np_zeros
 
 from ._distance import _Distance
@@ -105,7 +104,7 @@ class BISIM(_Distance):
         src = src[0].swapcase() * (self._qval - 1) + src
         tar = tar[0].swapcase() * (self._qval - 1) + tar
 
-        d_mat = np_zeros((src_len + 1, tar_len + 1), dtype=np_float)
+        d_mat = np_zeros((src_len + 1, tar_len + 1), dtype=float)
 
         for i in range(1, src_len + 1):
             for j in range(1, tar_len + 1):
