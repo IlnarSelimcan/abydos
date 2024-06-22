@@ -31,7 +31,6 @@ from typing import (
     cast,
 )
 
-from numpy import float_ as np_float
 from numpy import zeros as np_zeros
 
 from ._distance import _Distance
@@ -176,7 +175,7 @@ class MetaLevenshtein(_Distance):
             return dists[(s_tok, t_tok)] * vws_dict[s_tok] * vwt_dict[t_tok]
 
         d_mat = np_zeros(
-            (len(src_ordered) + 1, len(tar_ordered) + 1), dtype=np_float
+            (len(src_ordered) + 1, len(tar_ordered) + 1), dtype=float
         )
         for i in range(len(src_ordered) + 1):
             d_mat[i, 0] = i
